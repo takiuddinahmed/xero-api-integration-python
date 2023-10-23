@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-center">Welcome to Xero App</h1>
+<div class="d-flex justify-content-center">
+  <a class="btn btn-primary" href="/logout"> Logout </a>
+</div>
+
+<div class="mt-5">
+  <h3 class="text-center">Account Invoice Data</h3>
+  <table class="table">
+    <tr>
+      <th>Invoice ID</th>
+      <th>Invoice Number</th>
+      <th>Sub Total</th>
+      <th>Tax</th>
+      <th>Total</th>
+      <th>Type</th>
+      <th>Status</th>
+    </tr>
+    {% for entry in data.Invoices %}
+    <tr>
+      <td>{{ entry.InvoiceID }}</td>
+      <td>{{ entry.InvoiceNumber }}</td>
+      <td>{{ entry.SubTotal }}</td>
+      <td>{{ entry.TotalTax }}</td>
+      <td>{{ entry.Total }}</td>
+      <td>{{ entry.Type }}</td>
+      <td>{{ entry.Status }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
