@@ -132,14 +132,11 @@ def get_accounting_invoice_data():
 
 @app.route("/")
 def index():
-    xero_access = dict(obtain_xero_oauth2_token() or {})
-
     logged_in = session.get("token")
 
     if logged_in:
         json = get_accounting_invoice_data()
         data = parse_json(json)
-        print(json)
         return render_template("home.html", data=data)
     return render_template("login.html")
 
